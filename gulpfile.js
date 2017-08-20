@@ -4,16 +4,15 @@ const livereload = require('gulp-livereload');
 const concat = require('gulp-concat');
 
 //File paths
+let DIST_PATH = 'public/dist';
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
 let STYLES_PATH = 'public/css/**/*.css';
-
-let DIST_PATH = 'public/dist';
 
 //Styles
 gulp.task('styles', () => {
     console.log(`Starting styles task`);
     
-    return gulp.src(STYLES_PATH)
+    return gulp.src(['public/css/reset.css', STYLES_PATH]) //use an array of paths to get specify which should come first
         .pipe(concat('styles.css'))
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
