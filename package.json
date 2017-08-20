@@ -9,9 +9,11 @@
   "author": "George Higbie",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.4",
     "gulp": "^3.9.1"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-uglify": "^3.0.0"
   }
 }
