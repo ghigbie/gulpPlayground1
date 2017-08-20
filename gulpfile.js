@@ -47,4 +47,5 @@ gulp.task('watch', () => {
    require('./server.js');
    livereload.listen();
    gulp.watch(SCRIPTS_PATH, ['scripts']); //gulp watch needs an array of tasks that need to be run
+   gulp.watch(STYLES_PATH, ['styles']);
 });
