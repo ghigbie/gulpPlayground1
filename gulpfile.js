@@ -32,5 +32,6 @@ gulp.task('default', () => {
 //Watch
 gulp.task('watch', () => {
    console.log('Starting gulp watch...watching everyting!'); 
-   gulp.watch(SCRIPTS_PATH);
+   require('./server.js');
+   gulp.watch(SCRIPTS_PATH, ['scripts']); //gulp watch needs an array of tasks that need to be run
 });
