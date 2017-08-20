@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const livereload = require('gulp-livereload');
 const concat = require('gulp-concat');
+const minifyCss = require('gulp-minify-css');
 
 //File paths
 let DIST_PATH = 'public/dist';
@@ -14,6 +15,7 @@ gulp.task('styles', () => {
     
     return gulp.src(['public/css/reset.css', STYLES_PATH]) //use an array of paths to get specify which should come first
         .pipe(concat('styles.css'))
+        .pipe(minifyCss())//minify css after concatenating the files
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
 });
