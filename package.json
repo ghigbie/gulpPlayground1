@@ -9,7 +9,8 @@
   "author": "George Higbie",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "static-server": "^2.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
