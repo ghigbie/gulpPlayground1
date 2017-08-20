@@ -1,3 +1,3 @@
-var name = 'Morpheus';
+var name = 'Morphe';
 
 document.write('Yo ' + name + '!');
