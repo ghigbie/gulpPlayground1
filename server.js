@@ -8,5 +8,5 @@ const server = new StaticServer({
 });
 
 server.start(() => {
-    console.log(`The server is listening on port ${server.portT}`);
+    console.log(`The server is listening on port ${server.port}`);
 });
