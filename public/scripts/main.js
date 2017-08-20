@@ -1,3 +1,3 @@
-const name = 'Morpheus';
+var name = 'Morpheus';
 
-document.write(`Yo ${name}!`);
+document.write('Yo ' + name + '!');
