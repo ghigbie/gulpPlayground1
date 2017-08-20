@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const livereload = require('gulp-livereload');
+const concat = require('gulp-concat');
 
 //File paths
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
