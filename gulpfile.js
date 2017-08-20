@@ -5,10 +5,18 @@ const concat = require('gulp-concat');
 
 //File paths
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
+let STYLES_PATH = 'public/css/**/*.css';
+
+let DIST_PATH = 'public/dist';
 
 //Styles
 gulp.task('styles', () => {
     console.log(`Starting styles task`);
+    
+    return gulp.src(STYLES_PATH)
+        .pipe(concat('styles.css'))
+        .pipe(gulp.dest(DIST_PATH))
+        .pipe(livereload());
 });
 
 //Scripts
@@ -17,7 +25,7 @@ gulp.task('scripts', () => {
     
     return gulp.src(SCRIPTS_PATH) //This can be either SCRIPTS_PATH or 'public/scripts/*.js'
         .pipe(uglify())  //this pipe calls uglify
-        .pipe(gulp.dest('public/dist')) //this saves contents root of dist
+        .pipe(gulp.dest(DIST_PATH)) //this saves contents root of dist
         .pipe(livereload()); //this triggers the reload as soon as something gits compressed
 });
 
