@@ -15,3 +15,8 @@ gulp.task('scripts', () => {
 gulp.task('images', () => {
     console.log(`Startng images task`);
 });
+
+//Default
+gulp.task('default', () => {
+   console.log(`Starting default task`); 
+});
