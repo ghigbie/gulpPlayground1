@@ -7,7 +7,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
-const babel = require('gulp-babel-core');
+const babel = require('gulp-babel');
 
 //File paths
 let DIST_PATH = 'public/dist';

@@ -13,6 +13,9 @@
     "static-server": "^2.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
