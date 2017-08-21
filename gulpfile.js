@@ -57,6 +57,11 @@ gulp.task('scripts', () => {
     console.log(`Starting scripts task`);
     
     return gulp.src(SCRIPTS_PATH) //This can be either SCRIPTS_PATH or 'public/scripts/*.js'
+        .pipe(plumber( (err) => {
+            console.log('Scripts task error!');
+            console.log(err);
+            this.emit('end');
+        }))
         .pipe(sourcemaps.init())
         .pipe(uglify())  //this pipe calls uglify
         .pipe(concat('scripts.js'))
