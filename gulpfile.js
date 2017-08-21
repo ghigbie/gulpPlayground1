@@ -5,6 +5,7 @@ const concat = require('gulp-concat');
 const minifyCss = require('gulp-minify-css');
 const autoprefixer = require('gulp-autoprefixer');
 const plumber = require('gulp-plumber');
+const sourcemaps = require('gulp-sourcemaps');
 
 //File paths
 let DIST_PATH = 'public/dist';
@@ -21,9 +22,11 @@ gulp.task('styles', () => {
             console.log(err);
             this.emit('end'); //this is an internal method that tells gulp to stop running the processes but to still keep gulp up
         }))
+        .pipe(sourcemaps.init())//should be called right before concat and minify
         .pipe(autoprefixer()) //should be added before concat
         .pipe(concat('styles.css'))
         .pipe(minifyCss())//minify css after concatenating the files
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
 });
