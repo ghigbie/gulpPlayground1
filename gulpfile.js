@@ -6,17 +6,37 @@ const minifyCss = require('gulp-minify-css');
 const autoprefixer = require('gulp-autoprefixer');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
 
 //File paths
 let DIST_PATH = 'public/dist';
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
 let STYLES_PATH = 'public/css/**/*.css';
 
-//Styles
+//Styles - for regular CSS
+// gulp.task('styles', () => {
+//     console.log(`Starting styles task`);
+    
+//     return gulp.src(['public/css/reset.css', STYLES_PATH]) //use an array of paths to get specify which should come first
+//         .pipe(plumber( (err) => {
+//             console.log(`Styles task error!`);
+//             console.log(err);
+//             this.emit('end'); //this is an internal method that tells gulp to stop running the processes but to still keep gulp up
+//         }))
+//         .pipe(sourcemaps.init())//should be called right before concat and minify
+//         .pipe(autoprefixer()) //should be added before concat
+//         .pipe(concat('styles.css'))
+//         .pipe(minifyCss())//minify css after concatenating the files
+//         .pipe(sourcemaps.write())
+//         .pipe(gulp.dest(DIST_PATH))
+//         .pipe(livereload());
+// });
+
+//Styles - for SCSS
 gulp.task('styles', () => {
     console.log(`Starting styles task`);
     
-    return gulp.src(['public/css/reset.css', STYLES_PATH]) //use an array of paths to get specify which should come first
+    return gulp.src('public/scss/styles.scss')//this is path the scss file
         .pipe(plumber( (err) => {
             console.log(`Styles task error!`);
             console.log(err);
@@ -24,8 +44,9 @@ gulp.task('styles', () => {
         }))
         .pipe(sourcemaps.init())//should be called right before concat and minify
         .pipe(autoprefixer()) //should be added before concat
-        .pipe(concat('styles.css'))
-        .pipe(minifyCss())//minify css after concatenating the files
+        .pipe(sass({
+            outputStyle: 'compressed'
+        })) //sass takes care of concatenation and minification
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());

@@ -1,5 +1,7 @@
-@import "./reset/basic-reset"
+@import "./reset/basic-reset";
+
 $grey: #f7f7f7;
+
 body{
     background: $grey;
     display: flex;
