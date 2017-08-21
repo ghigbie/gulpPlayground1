@@ -19,6 +19,7 @@ gulp.task('styles', () => {
         .pipe(plumber( (err) => {
             console.log(`Styles task error!`);
             console.log(err);
+            this.emit('end'); //this is an internal method that tells gulp to stop running the processes but to still keep gulp up
         }))
         .pipe(autoprefixer()) //should be added before concat
         .pipe(concat('styles.css'))
