@@ -63,6 +63,9 @@ gulp.task('scripts', () => {
             this.emit('end');
         }))
         .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(uglify())  //this pipe calls uglify
         .pipe(concat('scripts.js'))
         .pipe(sourcemaps.write())
