@@ -1,3 +1,17 @@
-var name = 'Morphe';
+class Person{
+    constructor(name){
+        this.name =name;
+    }
+    hello(){
+        if(typeof this.name === 'string'){
+            return`Yo, this is ${this.name}!!!`;
+        }else{
+            return 'Hello';
+        }
+    }
+}
 
-document.write('Yo ' + name + '!');
+let person = new Person('Morpheus');
+
+
+document.write(person.hello());
