@@ -58,6 +58,7 @@ gulp.task('scripts', () => {
     
     return gulp.src(SCRIPTS_PATH) //This can be either SCRIPTS_PATH or 'public/scripts/*.js'
         .pipe(uglify())  //this pipe calls uglify
+        .pipe(concat('scripts.js'))
         .pipe(gulp.dest(DIST_PATH)) //this saves contents root of dist
         .pipe(livereload()); //this triggers the reload as soon as something gits compressed
 });
