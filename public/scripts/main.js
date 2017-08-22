@@ -1,3 +1,5 @@
+/* global templates */
+
 class Person{
     constructor(name){
         this.name =name;
@@ -40,8 +42,12 @@ class Plant{
 let person = new Person('Morpheus');
 let animal1 = new Animal('Lion');
 let plant1 = new Plant('Cactus');
+let greetTemplate = templates['greeting']({
+    message: person.hello()
+});
 
 
 document.write(person.hello());
 document.write(animal1.makeNoise());
 document.write(plant1.be());
+document.write(greetTemplate);
