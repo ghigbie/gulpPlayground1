@@ -8,6 +8,7 @@ const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
+const del = require('del');
 
 //Handlebars plugins
 const handlebars = require('gulp-handlebars');
@@ -119,6 +120,13 @@ gulp.task('templates', () => {
         .pipe(concat('templates.js'))
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
+});
+
+//Clean task
+gulp.task('clean', () => {
+    return del.sync([
+       DIST_PATH
+    ]); 
 });
 
 //Default
