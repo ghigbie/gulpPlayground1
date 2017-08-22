@@ -25,6 +25,7 @@ let DIST_PATH = 'public/dist';
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
 let STYLES_PATH = 'public/css/**/*.css';
 let TEMPLATES_PATH = 'templates/**/*.hbs';
+let IMAGES_PATH = 'public/images/**/*.{png, jpeg, jpg, svg gif}'; //{} at end adds spport for all included file types
 
 //Styles - for regular CSS
 // gulp.task('styles', () => {
@@ -89,7 +90,9 @@ gulp.task('scripts', () => {
 
 //Images
 gulp.task('images', () => {
-    console.log(`Startng images task`);
+    return gulp.src(IMAGES_PATH)
+        .pipe(imagemin())
+        .pipe(gulp.dest(DIST_PATH + '/images'));
 });
 
 //Templates task
