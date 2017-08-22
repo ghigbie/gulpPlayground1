@@ -9,6 +9,12 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 
+//Handlebars plugins
+const handlebars = require('gulp-handlebars');
+const handlebarsLib = require('handlebars');
+const decalre = require('gulp-declare');
+const wrap = require('gulp-wrap');
+
 //File paths
 let DIST_PATH = 'public/dist';
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
