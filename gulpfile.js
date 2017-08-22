@@ -9,6 +9,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const del = require('del');
+const zip = require('gulp-zip')
 
 //Handlebars plugins
 const handlebars = require('gulp-handlebars');
@@ -132,6 +133,12 @@ gulp.task('clean', () => {
 //Default
 gulp.task('default', ['images', 'templates', 'styles', 'scripts'], () =>{
    console.log(`Starting default task`); 
+});
+
+gulp.task('export', () => {
+   return gulp.src('public/**/*')
+    .pipe(zip('website.zip'))
+    .pipe(gulp.dest('./'));
 });
 
 //Watch  --- gulp watch is built into gulp
