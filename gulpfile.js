@@ -15,6 +15,11 @@ const handlebarsLib = require('handlebars');
 const declare = require('gulp-declare');
 const wrap = require('gulp-wrap');
 
+//Image compression
+const imagemin = require('gulp-imagemin');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminJpegRecompress = require('imagemin-jpeg-recompress');
+
 //File paths
 let DIST_PATH = 'public/dist';
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
@@ -109,7 +114,7 @@ gulp.task('default', ['images', 'templates', 'styles', 'scripts'], () =>{
 });
 
 //Watch  --- gulp watch is built into gulp
-gulp.task('watch', () => { 
+gulp.task('watch', ['default'], () => { 
    console.log('Starting gulp watch...watching everyting!'); 
    require('./server.js');
    livereload.listen();
