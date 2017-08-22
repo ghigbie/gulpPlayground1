@@ -98,7 +98,7 @@ gulp.task('templates', () => {
             namespace: 'templates',
             noRedeclare: true
         }))
-        .pipe(concat('templates.hbs'))
+        .pipe(concat('templates.js'))
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
 });
@@ -116,4 +116,5 @@ gulp.task('watch', () => {
    gulp.watch(SCRIPTS_PATH, ['scripts']); //gulp watch needs an array of tasks that need to be run
    //gulp.watch(STYLES_PATH, ['styles']);
    gulp.watch('public/scss/**/*.scss', ['styles']); //gulp watch for scss
-});s
+   gulp.watch(TEMPLATES_PATH, ['templates']);
+});
