@@ -31,6 +31,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^3.0.0",
     "gulp-wrap": "^0.13.0",
-    "handlebars": "^4.0.10"
+    "handlebars": "^4.0.10",
+    "imagemin-pngquant": "^5.0.0"
   }
 }
