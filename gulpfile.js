@@ -91,7 +91,17 @@ gulp.task('scripts', () => {
 //Images
 gulp.task('images', () => {
     return gulp.src(IMAGES_PATH)
-        .pipe(imagemin())
+        .pipe(imagemin(
+            [
+                imagemin.gifsicle(), //default that needs to be called to use plugins
+                imagemin.jpegtran(), //default that needs to be called to use plugins
+                imagemin.optipng(), //default that needs to be called to use plugins
+                imagemin.svgo(), //default that needs to be called to use plugins
+                imageminPngquant(), //plugin
+                imageminJpegRecompress() //plugin
+                
+            ]
+        ))
         .pipe(gulp.dest(DIST_PATH + '/images'));
 });
 
