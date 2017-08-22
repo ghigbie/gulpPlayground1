@@ -104,7 +104,7 @@ gulp.task('templates', () => {
 });
 
 //Default
-gulp.task('default', () => {
+gulp.task('default', ['images', 'templates', 'styles', 'scripts'], () =>{
    console.log(`Starting default task`); 
 });
 

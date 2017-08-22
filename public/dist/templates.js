@@ -1,5 +1,3 @@
-/*global Handlebars*/
-
 this["templates"] = this["templates"] || {};
 this["templates"]["greeting"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
