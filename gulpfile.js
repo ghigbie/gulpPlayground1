@@ -12,13 +12,14 @@ const babel = require('gulp-babel');
 //Handlebars plugins
 const handlebars = require('gulp-handlebars');
 const handlebarsLib = require('handlebars');
-const decalre = require('gulp-declare');
+const declare = require('gulp-declare');
 const wrap = require('gulp-wrap');
 
 //File paths
 let DIST_PATH = 'public/dist';
 let SCRIPTS_PATH = 'public/scripts/**/*.js';
 let STYLES_PATH = 'public/css/**/*.css';
+let TEMPLATES_PATH = 'templates/**/*.hbs';
 
 //Styles - for regular CSS
 // gulp.task('styles', () => {
@@ -84,6 +85,22 @@ gulp.task('scripts', () => {
 //Images
 gulp.task('images', () => {
     console.log(`Startng images task`);
+});
+
+//Templates task
+gulp.task('templates', () => {
+    return gulp.src(TEMPLATES_PATH)
+        .pipe(handlebars({
+            handlebars: handlebarsLib
+        }))
+        .pipe(wrap('Handlebars.template(<%= contents %>)'))
+        .pipe(declare({
+            namespace: 'templates',
+            noRedeclare: true
+        }))
+        .pipe(concat('templates.hbs'))
+        .pipe(gulp.dest(DIST_PATH))
+        .pipe(livereload());
 });
 
 //Default
